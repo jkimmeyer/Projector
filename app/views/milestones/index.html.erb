@@ -2,9 +2,9 @@
   <div class= 'col-md-6'>
     <ul>
       <% @project.milestones.each do |f| %>
-        <li><%= link_to f.name,   project_milestones_path(f) %></li>
+      <li><%=f.name%><%=link_to 'Edit',   edit_project_milestone_path(@project) %></li>
       <% end%>
     </ul>
-    <%= link_to "Add Milestone", new_project_milestone_path(:project_id), class:"btn btn-default"  %>
+    <%= link_to "Add Milestone", new_project_milestone_path(@project), class:"btn btn-default"  %>
   </div>
 </div>

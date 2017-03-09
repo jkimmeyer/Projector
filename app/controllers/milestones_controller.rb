@@ -15,14 +15,22 @@ class MilestonesController < ApplicationController
 
     def create
       @project = Project.find(params[:project_id])
-      @milestone = @project.milestones.create(milestone_params)
-      if @project.save
-        redirect_to @milestone
+      @milestone = @project.milestones.new(milestone_params)
+      if @milestone.save
+        redirect_to @project
       else
         render 'new'
       end
     end
 
+    def update
+      @project = Project.find(params[:project_id])
+      @milestone = @project.milestones.find(params[:id])
+
+      if @milestone.update(milestone_params)
+        redirect_to root_path
+      end
+    end
 
   private
 
