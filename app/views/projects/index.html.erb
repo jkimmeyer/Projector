@@ -1,5 +1,10 @@
-<ul>
-  <% @projects.each do |f| %>
-    <li><%=f.name %> : <%= f.person_responsible%></li>
-  <% end%>
-</ul>
+<div class='row'>
+  <div class= 'col-md-6'>
+    <ul>
+      <% @projects.each do |f| %>
+        <li><%= link_to f.name,   project_path(f) %></li>
+      <% end%>
+    </ul>
+    <%= link_to "Add Project", new_project_path, class:"btn btn-default"  %>
+  </div>
+</div>

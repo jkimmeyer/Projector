@@ -25,8 +25,23 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def destroy
+  def edit
     @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(project_params)
+      # Handle a successful update.
+    else
+      render 'edit'
+    end
+  end
+
+
+  def destroy
+    Project.find(params[:id]).destroy
+    redirect_to root_path
   end
 
 private
