@@ -4,12 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new(params[:person])
-      if @project.save
-        # success
-      else
-        # error handling
-      end
+    @project = Project.new(project_params)
   end
 
   def show
@@ -47,7 +42,7 @@ class ProjectsController < ApplicationController
 private
 
     def project_params
-      params.require(:project).permit(:name, :person_responsible, :start,
+      params.require(:project).permit(:name, :person_responsible, :start, :description,
                                    :planned_termination_date)
     end
 end

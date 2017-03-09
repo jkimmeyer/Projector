@@ -9,10 +9,10 @@
       <%= f.text_field :person_responsible %>
 
       <%= f.label :start %>
-      <%= f.datetime_field :start %>
+      <%= f.datetime_field :start, 'data-provide':'datepicker' %>
 
       <%= f.label :planned_termination_date %>
-      <%= f.datetime_field :planned_termination_date %>
+      <%= f.datetime_field :planned_termination_date, 'data-provide':'datepicker'%>
 
       <%= f.label :description %>
       <%= f.text_area :description %>
