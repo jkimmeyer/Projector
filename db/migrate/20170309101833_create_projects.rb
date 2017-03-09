@@ -4,8 +4,8 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :person_responsible
       t.text :description
-      t.time :start
-      t.time :planned_termination_date
+      t.datetime :start
+      t.datetime :planned_termination_date
 
       t.timestamps
     end

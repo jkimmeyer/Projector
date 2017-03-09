@@ -5,11 +5,12 @@ Rails.application.routes.draw do
 
   root 'projects#index'
 
-  get 'milestones/index'
+  get 'projects/milestones/index', to: 'milestones#index'
 
-  get 'milestones/edit'
+  get 'projects/milestones/:id', to: 'milestones#show'
 
-  get 'projects/new'
+  get 'projects/show/:id', to: 'projects#show'
 
+  get 'projects/new', to:'projects#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
