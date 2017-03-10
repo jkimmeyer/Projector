@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new(project_params)
+    @project = Project.new
   end
 
   def show
@@ -42,7 +42,6 @@ class ProjectsController < ApplicationController
 private
 
     def project_params
-      params.require(:project).permit(:name, :person_responsible, :start, :description,
-                                   :planned_termination_date)
+      params.require(:project).permit(:name, :person_responsible, :start, :planned_termination_date, :description)
     end
 end

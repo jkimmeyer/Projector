@@ -4,4 +4,6 @@ class Project < ApplicationRecord
   validates :person_responsible, presence: true
   validates :start, presence: true
   validates :planned_termination_date, presence: true
+
+
 end

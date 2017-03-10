@@ -9,8 +9,14 @@ class MilestonesController < ApplicationController
       @project = Project.find(params[:project_id])
     end
 
+    def edit
+      @project = Project.find(params[:project_id])
+      @milestone = @project.milestones.find(params[:id])
+    end
+
     def show
       @milestone = Milestone.find(params[:id])
+      @milestone = @project.milestones.find(params[:id])
     end
 
     def create
@@ -27,10 +33,17 @@ class MilestonesController < ApplicationController
       @project = Project.find(params[:project_id])
       @milestone = @project.milestones.find(params[:id])
 
-      if @milestone.update(milestone_params)
-        redirect_to root_path
+      if @milestone.update_attributes(milestone_params)
+        redirect_to @project
       end
     end
+
+    def destroy
+      @project = Project.find(params[:project_id])
+      @project.milestones.find(params[:id]).destroy
+      redirect_to @project
+    end
+
 
   private
 

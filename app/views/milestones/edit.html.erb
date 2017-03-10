@@ -1,7 +1,7 @@
-<% provide(:title, 'New milestone')%>
+<% provide(:title, 'Edit Milestone')%>
 <div class='row'>
   <div class="col-md-6">
-    <%=form_for([@milestone, url: edit_project_milestone_path(params[:id])]) do |f| %>
+    <%=form_for([@project, @milestone]) do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name %>
 
@@ -12,10 +12,10 @@
       <%= f.text_area :description %>
 
       <%= f.label :completed %>
-      <%= f.radio_button :completed, 'Completed'%> Completed
-      <%= f.radio_button :completed, 'Not Completed' %> Not Completed
+      <%= f.radio_button :completed, true%> Completed
+      <%= f.radio_button :completed, false %> Not Completed
 
-      <%= f.submit "Create project", class: "btn btn-primary" %>
+      <%= f.submit yield(:title), class: "btn btn-primary" %>
     <% end %>
   <div>
 </div>

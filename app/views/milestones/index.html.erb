@@ -1,8 +1,10 @@
 <div class='row'>
   <div class= 'col-md-6'>
     <ul>
-      <% @project.milestones.each do |f| %>
-      <li><%=f.name%><%=link_to 'Edit',   edit_project_milestone_path(@project) %></li>
+      <% @project.milestones.each do |p| %>
+      <li><%=p.name%><%=link_to 'Edit', [:edit, @project, p]%></li>
+      <%=link_to 'Delete',  [@project,p], method: :delete,
+            data: {confirm:"You sure?"}%>
       <% end%>
     </ul>
     <%= link_to "Add Milestone", new_project_milestone_path(@project), class:"btn btn-default"  %>

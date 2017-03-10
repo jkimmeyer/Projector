@@ -1,4 +1,4 @@
-<% provide(:title, 'New milestone')%>
+<% provide(:title, 'New Milestone')%>
 <div class='row'>
   <div class="col-md-6">
     <%=form_for([@project, @project.milestones.build]) do |f| %>
@@ -15,7 +15,7 @@
       <%= f.radio_button :completed, 'Completed'%> Completed
       <%= f.radio_button :completed, 'Not Completed' %> Not Completed
 
-      <%= f.submit "Create project", class: "btn btn-primary" %>
+      <%= f.submit "Create " + yield(:title), class: "btn btn-primary" %>
     <% end %>
   <div>
 </div>
