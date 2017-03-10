@@ -4,10 +4,18 @@
     <%= will_paginate %>
     <ul class="list-group">
       <% @projects.each do |f| %>
-        <%= link_to f.name,   project_path(f), class:"list-group-item list-group-item-danger" %>
+        <%= link_to f.name,   project_path(f), class:"list-group-item" %>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="<%=f.progress %>"
+            aria-valuemin="0" aria-valuemax="100" style="width:<%=f.progress%>%">
+            <span><%=number_to_percentage(f.progress, precision:0)%></span>
+          </div>
+        </div>
       <% end%>
     </ul>
-    <%= link_to "Add Project", new_project_path, class:"btn btn-default"  %>
+    <% if user_signed_in? %>
+      <%= link_to "Projekt hinzufügen", new_project_path, class:"btn btn-default"  %>
+    <% end %>
     <%= will_paginate %>
   </div>
 </div>

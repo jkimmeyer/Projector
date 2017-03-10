@@ -1,18 +1,20 @@
 <div class='row'>
   <div class= 'col-md-12'>
-
       <% @project.milestones.each do |p| %>
-        <h3><%=p.name%></h1>
+        <h5><%=p.name%></h5>
         <dl class="dl-horizontal">
           <dt>Verantwortlicher:</dt> <dd><%=p.person_responsible%><dd>
           <dt>Beschreibung:</dt><dd><%=p.description%></dd>
           <dt>Fortschritt:</dt><dd><%="0%" if !p.completed%><%="100%" if p.completed%></dd>
-          <dd><%=link_to 'Edit', [:edit, @project, p], class:"btn btn-default"%>
-            <%=link_to 'Delete',  [@project,p], method: :delete,
+          <% if user_signed_in? %>
+            <dd><%=link_to 'Bearbeiten', [:edit, @project, p], class:"btn btn-default"%>
+              <%=link_to 'Löschen',  [@project,p], method: :delete,
                 data: {confirm:"You sure?"} ,class:"btn btn-default"%></dd>
-      </dl>
+          <% end%>
+        </dl>
       <% end%>
-    </dl>
-    <%= link_to "Add Milestone", new_project_milestone_path(@project), class:"btn btn-default"  %>
+      <% if user_signed_in? %>
+        <%= link_to "Meilenstein hinzufügen", new_project_milestone_path(@project), class:"btn btn-default"  %>
+      <% end %>
   </div>
 </div>

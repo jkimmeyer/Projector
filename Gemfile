@@ -38,7 +38,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'devise'
-
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

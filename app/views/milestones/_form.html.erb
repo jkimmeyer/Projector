@@ -1,16 +1,16 @@
 <%=form_for(special_path) do |f| %>
-  <%= f.label :name %>
+  <%= f.label "Name" %>
   <%= f.text_field :name %>
 
-  <%= f.label :person_responsible %>
+  <%= f.label "Verantwortlicher" %>
   <%= f.text_field :person_responsible %>
 
-  <%= f.label :description %>
+  <%= f.label "Beschreibung" %>
   <%= f.text_area :description %>
 
-  <%= f.label :completed %>
-  <%= f.radio_button :completed, true%> Completed
-  <%= f.radio_button :completed, false %> Not Completed
+  <%= f.label "Fortschritt" %>
+  <%= f.radio_button :completed, true%> Abgeschlossen
+  <%= f.radio_button :completed, false %> Nicht abgeschlossen
 
   <%= f.submit yield(:title), class: "btn btn-primary" %>
 <% end %>
