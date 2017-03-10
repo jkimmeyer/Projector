@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   validates :person_responsible, presence: true
   validates :project_start_date, presence: true
   validates :planned_termination_date, presence: true
+  validate :expiration_date_cannot_be_in_the_past
 
   def progress
     @progress ||= if self.milestones.exists?

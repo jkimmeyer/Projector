@@ -11,8 +11,8 @@
       <dt>Projektfortschritt:</dt> <dd> <%= number_to_percentage(@project.progress, precision: 2)%></dd>
     </dl>
 
-    <div class = 'col-md-6 centered'>
-      <% if user_signed_in? %>  
+    <div class = 'col-md-6'>
+      <% if user_signed_in? %>
         <%= link_to "Bearbeiten", edit_project_path(@project), class:"btn btn-default" %>
         <%= link_to "Löschen", @project, method: :delete,
               data: {confirm:"You sure?"},

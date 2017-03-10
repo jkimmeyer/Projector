@@ -8,9 +8,12 @@
   <%= f.label "Beschreibung" %>
   <%= f.text_area :description %>
 
-  <%= f.label "Fortschritt" %>
-  <%= f.radio_button :completed, true%> Abgeschlossen
-  <%= f.radio_button :completed, false %> Nicht abgeschlossen
-
+  <%= f.label "Fortschritt"%>
+  <label class= "radio-inline">
+    <%= f.radio_button :completed, true, class: "radio-inline" %> Abgeschlossen
+  </label>
+  <label class= "radio-inline">
+    <%= f.radio_button :completed, false, class: "radio-inline"  %> Nicht abgeschlossen
+  </label>
   <%= f.submit yield(:title), class: "btn btn-primary" %>
 <% end %>
