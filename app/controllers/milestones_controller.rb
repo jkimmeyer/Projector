@@ -3,6 +3,7 @@ class MilestonesController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit, :destroy]
 
     def new
+      @milestone = @project.milestones.new()  
     end
 
     def edit

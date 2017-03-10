@@ -1,4 +1,8 @@
 <%=form_for(special_path) do |f| %>
+ <% if @milestone.errors.any? %>
+  <div class="alert alert-danger" role="alert"><%=@milestone.errors.full_messages%></div>
+ <%end%>
+
   <%= f.label "Name" %>
   <%= f.text_field :name %>
 
