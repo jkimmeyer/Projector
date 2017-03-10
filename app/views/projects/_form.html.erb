@@ -1,0 +1,18 @@
+<%=form_for(@project) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :person_responsible %>
+  <%= f.text_field :person_responsible %>
+
+  <%= f.label :project_start_date %>
+  <%= f.datetime_field :project_start_date, 'data-provide':'datepicker', 'data-date-format':'dd-mm-yyyy' %>
+
+  <%= f.label :planned_termination_date %>
+  <%= f.datetime_field :planned_termination_date, 'data-provide':'datepicker', 'data-date-format':'dd-mm-yyyy' %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit yield(:title), class: "btn btn-primary" %>
+    <% end %>

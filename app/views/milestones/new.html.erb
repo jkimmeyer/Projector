@@ -1,21 +1,7 @@
 <% provide(:title, 'New Milestone')%>
+<h2><%=yield(:title)%></h2>
 <div class='row'>
   <div class="col-md-6">
-    <%=form_for([@project, @project.milestones.build]) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :person_responsible %>
-      <%= f.text_field :person_responsible %>
-
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-
-      <%= f.label :completed %>
-      <%= f.radio_button :completed, 'Completed'%> Completed
-      <%= f.radio_button :completed, 'Not Completed' %> Not Completed
-
-      <%= f.submit "Create " + yield(:title), class: "btn btn-primary" %>
-    <% end %>
-  <div>
+    <%= render :partial => 'form', :locals => {:special_path => [@project, @project.milestones.build]} %>
+  </div>
 </div>

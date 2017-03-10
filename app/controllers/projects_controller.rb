@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!, only:[:new, :edit, :destroy]
+
   def index
-    @projects = Project.all
+    @projects = Project.all.paginate(page: params[:page])
   end
 
   def new
@@ -27,7 +29,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(project_params)
-      # Handle a successful update.
+      redirect_to @project
     else
       render 'edit'
     end
@@ -42,6 +44,6 @@ class ProjectsController < ApplicationController
 private
 
     def project_params
-      params.require(:project).permit(:name, :person_responsible, :start, :planned_termination_date, :description)
+      params.require(:project).permit(:name, :person_responsible, :project_start_date, :planned_termination_date, :description)
     end
 end
