@@ -1,7 +1,7 @@
 <div class='row'>
   <div class= 'col-md-12'>
       <% @project.milestones.each do |p| %>
-        <h5><%=p.name%></h5>
+        <h4><%=p.name%></h4>
         <dl class="dl-horizontal">
           <dt>Verantwortlicher:</dt> <dd><%=p.person_responsible%><dd>
           <dt>Beschreibung:</dt><dd><%=p.description%></dd>

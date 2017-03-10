@@ -6,7 +6,7 @@
       <% @projects.each do |f| %>
         <%= link_to f.name,   project_path(f), class:"list-group-item" %>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="<%=f.progress %>"
+          <div class="progress-bar <%= "progress-bar-success" if f.progress == 100.00 %>" role="progressbar" aria-valuenow="<%=f.progress %>"
             aria-valuemin="0" aria-valuemax="100" style="width:<%=f.progress%>%">
             <span><%=number_to_percentage(f.progress, precision:0)%></span>
           </div>
