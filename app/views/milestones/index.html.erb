@@ -3,18 +3,22 @@
       <% @project.milestones.each do |p| %>
         <h4><%=p.name%></h4>
         <dl class="dl-horizontal list-group-item <%="list-group-item-success" if p.completed %>">
-          <dt>Verantwortlicher:</dt> <dd><%=p.person_responsible%><dd>
-          <dt>Beschreibung:</dt><dd><%=p.description%></dd>
-          <dt>Fortschritt:</dt><dd><%="0%" if !p.completed%><%="100%" if p.completed%></dd>
+          <dt>Person Responsible:</dt> <dd><%=p.person_responsible%><dd>
+          <dt>Description:</dt><dd><%=p.description%></dd>
+          <dt>Done:</dt>
+          <dd>
+            <span class= "<%="glyphicon glyphicon-remove" if !p.completed%>"></span>
+            <span class= "<%="glyphicon glyphicon-ok" if p.completed%>"></span>
+          </dd>
           <% if user_signed_in? %>
-            <dd><%=link_to 'Bearbeiten', [:edit, @project, p], class:"btn btn-default"%>
-              <%=link_to 'Löschen',  [@project,p], method: :delete,
+            <dd><%=link_to 'Edit', [:edit, @project, p], class:"btn btn-default"%>
+              <%=link_to 'Delete',  [@project,p], method: :delete,
                 data: {confirm:"You sure?"} ,class:"btn btn-default"%></dd>
           <% end%>
         </dl>
       <% end%>
       <% if user_signed_in? %>
-        <%= link_to "Meilenstein hinzufügen", new_project_milestone_path(@project), class:"btn btn-default"  %>
+        <%= link_to "Add Milestone", new_project_milestone_path(@project), class:"btn btn-default"  %>
       <% end %>
   </div>
 </div>

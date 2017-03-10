@@ -2,18 +2,18 @@
   <%= f.label "Name" %>
   <%= f.text_field :name %>
 
-  <%= f.label "Verantwortlicher" %>
+  <%= f.label "Person Responsible" %>
   <%= f.text_field :person_responsible %>
 
-  <%= f.label "Beschreibung" %>
+  <%= f.label "Description" %>
   <%= f.text_area :description %>
 
-  <%= f.label "Fortschritt"%>
+  <%= f.label "Progress"%>
   <label class= "radio-inline">
-    <%= f.radio_button :completed, true, class: "radio-inline" %> Abgeschlossen
+    <%= f.radio_button :completed, true, class: "radio-inline" %> Done
   </label>
   <label class= "radio-inline">
-    <%= f.radio_button :completed, false, class: "radio-inline"  %> Nicht abgeschlossen
+    <%= f.radio_button :completed, false, class: "radio-inline"  %> In Progress
   </label>
   <%= f.submit yield(:title), class: "btn btn-primary" %>
 <% end %>

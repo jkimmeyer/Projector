@@ -2,16 +2,16 @@
   <%= f.label "Name" %>
   <%= f.text_field :name %>
 
-  <%= f.label "Verantwortlicher" %>
+  <%= f.label "Responsible Person" %>
   <%= f.text_field :person_responsible %>
 
-  <%= f.label "Start-Datum" %>
+  <%= f.label "Start Date" %>
   <%= f.datetime_field :project_start_date, 'data-provide':'datepicker', 'data-date-format':'dd-mm-yyyy' %>
 
-  <%= f.label "Geplantes End-Datum" %>
+  <%= f.label "Planned Termination Date" %>
   <%= f.datetime_field :planned_termination_date, 'data-provide':'datepicker', 'data-date-format':'dd-mm-yyyy' %>
 
-  <%= f.label "Beschreibung" %>
+  <%= f.label "Description" %>
   <%= f.text_area :description %>
 
   <%= f.submit yield(:title), class: "btn btn-primary" %>

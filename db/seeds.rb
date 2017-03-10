@@ -10,11 +10,12 @@
   Project.create!(name:  Faker::Company.name,
              person_responsible: Faker::Name.name,
              project_start_date: Faker::Date.backward(50),
-             planned_termination_date: Faker::Date.forward(50))
+             planned_termination_date: Faker::Date.forward(50),
+             description: Faker::Hipster.paragraph)
 end
 
 100.times do |p|
-  Milestone.create!(name: Faker::Company.catch_phrase, 
+  Milestone.create!(name: Faker::Company.catch_phrase,
               description: Faker::Hacker.say_something_smart,
               person_responsible: Faker::Name.name,
               completed: [true, false].sample,
